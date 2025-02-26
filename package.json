@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "displayName": "Oghi VR Tools",
   "description": "Utility VR library. Dependable on BNG Framework",
-  "unity": "6000.#",
   "dependencies": {
     "com.oghina.oghiunitytools": "https://github.com/Oghina/OghiUnityTools.git"
   }
