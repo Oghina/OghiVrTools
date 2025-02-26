@@ -3,7 +3,7 @@ using OghiUnityTools.EventBus;
 using OghiUnityTools.ExtensionMethods;
 using UnityEngine;
 
-namespace OghiUnityTools.VR.UI.Scripts
+namespace OghiVrTools.UI.Scripts
 {
     public class CatalogManager : MonoBehaviour
     {
@@ -11,18 +11,22 @@ namespace OghiUnityTools.VR.UI.Scripts
         [SerializeField] private Transform contentParent;
 
         [SerializeField] private Sprite defaultCatalogIcon;
-        
-        private EventBinding<AddProductToCatalogRequest> addProductToCatalogRequestBinding;
 
         private readonly Catalog catalog = new();
-        
+
+        private EventBinding<AddProductToCatalogRequest> addProductToCatalogRequestBinding;
+
         private void Awake()
         {
-            addProductToCatalogRequestBinding = new EventBinding<AddProductToCatalogRequest>(OnAddProductToCatalogRequest);
+            addProductToCatalogRequestBinding =
+                new EventBinding<AddProductToCatalogRequest>(OnAddProductToCatalogRequest);
             EventBus<AddProductToCatalogRequest>.Register(addProductToCatalogRequestBinding);
         }
 
-        private void OnDestroy() => EventBus<AddProductToCatalogRequest>.Deregister(addProductToCatalogRequestBinding);
+        private void OnDestroy()
+        {
+            EventBus<AddProductToCatalogRequest>.Deregister(addProductToCatalogRequestBinding);
+        }
 
         private void OnAddProductToCatalogRequest(AddProductToCatalogRequest obj)
         {
@@ -35,7 +39,7 @@ namespace OghiUnityTools.VR.UI.Scripts
         {
             // First delete all the items in the list
             contentParent.DestroyChildren();
-            
+
             catalogDictionary.ForEach(item =>
             {
                 var catalogItem = Instantiate(itemPrefab, contentParent);

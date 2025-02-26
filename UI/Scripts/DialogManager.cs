@@ -2,24 +2,24 @@ using System.Collections.Generic;
 using OghiUnityTools.EventBus;
 using UnityEngine;
 
-namespace OghiUnityTools.VR.UI.Scripts
+namespace OghiVrTools.UI.Scripts
 {
     public class DialogManager : MonoBehaviour
     {
         [SerializeField] private Dialog dialog;
-        
+
         private readonly Queue<DialogRequest> dialogQueue = new();
-        
-        private bool isDialogShowing;
 
         private EventBinding<DialogRequest> dialogRequestBinding;
-        
+
+        private bool isDialogShowing;
+
         private void Awake()
         {
             dialog.gameObject.SetActive(false);
 
             dialogRequestBinding = new EventBinding<DialogRequest>(ShowDialog);
-            
+
             EventBus<DialogRequest>.Register(dialogRequestBinding);
         }
 
@@ -31,10 +31,7 @@ namespace OghiUnityTools.VR.UI.Scripts
         private void ShowDialog(DialogRequest request)
         {
             dialogQueue.Enqueue(request);
-            if (!isDialogShowing)
-            {
-                ShowNextDialog();
-            }
+            if (!isDialogShowing) ShowNextDialog();
         }
 
         private void ShowNextDialog()

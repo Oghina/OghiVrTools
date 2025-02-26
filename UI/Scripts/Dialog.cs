@@ -3,32 +3,32 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace OghiUnityTools.VR.UI.Scripts
+namespace OghiVrTools.UI.Scripts
 {
     public class Dialog : MonoBehaviour
     {
         [SerializeField] private Button yesButton;
         [SerializeField] private Button noButton;
         [SerializeField] private Button cancelButton;
-   
-        [SerializeField] private TMP_Text headerText;    // Add reference for header text
-        [SerializeField] private TMP_Text messageText;   // Add reference for message text
 
-        private Action onYesClicked;
-        private Action onNoClicked;
+        [SerializeField] private TMP_Text headerText; // Add reference for header text
+        [SerializeField] private TMP_Text messageText; // Add reference for message text
         private Action onCancelClicked;
 
         private Action onDialogFinished;
+        private Action onNoClicked;
+
+        private Action onYesClicked;
 
         private void Awake()
         {
             // Add listeners to buttons
             if (yesButton != null)
                 yesButton.onClick.AddListener(HandleYesClick);
-        
+
             if (noButton != null)
                 noButton.onClick.AddListener(HandleNoClick);
-        
+
             if (cancelButton != null)
                 cancelButton.onClick.AddListener(HandleCancelClick);
         }
@@ -73,7 +73,7 @@ namespace OghiUnityTools.VR.UI.Scripts
         public void Show(DialogRequest request, Action onDialogFinishedAction)
         {
             onDialogFinished = onDialogFinishedAction;
-            
+
             switch (request.DialogType)
             {
                 case DialogType.Info:
@@ -100,10 +100,10 @@ namespace OghiUnityTools.VR.UI.Scripts
         {
             if (yesButton != null)
                 yesButton.gameObject.SetActive(showYes);
-        
+
             if (noButton != null)
                 noButton.gameObject.SetActive(showNo);
-        
+
             if (cancelButton != null)
                 cancelButton.gameObject.SetActive(showCancel);
         }
@@ -112,7 +112,7 @@ namespace OghiUnityTools.VR.UI.Scripts
         {
             if (headerText != null)
                 headerText.text = header;
-        
+
             if (messageText != null)
                 messageText.text = message;
 

@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace OghiUnityTools.VR.UI.Scripts
+namespace OghiVrTools.UI.Scripts
 {
     public class CatalogItem : MonoBehaviour
     {

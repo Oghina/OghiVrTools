@@ -1,8 +1,8 @@
-namespace OghiUnityTools.VR.SnapzoneTighteningWithToolMechanism
+namespace OghiVrTools.SnapzoneTighteningWithToolMechanism
 {
     public enum TightenType
     {
-        Loose, 
+        Loose,
         Tight
     }
 }

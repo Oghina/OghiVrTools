@@ -1,4 +1,4 @@
-namespace OghiUnityTools.VR.UI.Scripts
+namespace OghiVrTools.UI.Scripts
 {
     public enum DialogType
     {

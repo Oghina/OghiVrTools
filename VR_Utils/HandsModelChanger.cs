@@ -1,8 +1,8 @@
+using System.Collections;
 using BNG;
 using UnityEngine;
-using System.Collections;
 
-namespace OghiUnityTools.VR.VR_Utils
+namespace OghiVrTools.VR_Utils
 {
     public class HandsModelChanger : MonoBehaviour
     {
@@ -10,14 +10,11 @@ namespace OghiUnityTools.VR.VR_Utils
 
         public HandModelSelector hms;
 
-        void Start() {
-            if(hms == null) {
-                hms = FindFirstObjectByType<HandModelSelector>();
-            }
+        private void Start()
+        {
+            if (hms == null) hms = FindFirstObjectByType<HandModelSelector>();
 
-            if(hms == null) {
-                Debug.Log("No Hand Model Selector Found in Scene. Will not be able to switch hand models");
-            }
+            if (hms == null) Debug.Log("No Hand Model Selector Found in Scene. Will not be able to switch hand models");
 
             StartCoroutine(ChangeHandsModel());
         }
@@ -25,8 +22,8 @@ namespace OghiUnityTools.VR.VR_Utils
         private IEnumerator ChangeHandsModel()
         {
             yield return new WaitForSeconds(1f);
-            hms.ChangeHandsModel(handModelId, false);
+            hms.ChangeHandsModel(handModelId);
             StopAllCoroutines();
-        } 
+        }
     }
 }

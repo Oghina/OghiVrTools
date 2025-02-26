@@ -1,4 +1,4 @@
-namespace OghiUnityTools.VR.SnapzoneTighteningWithToolMechanism
+namespace OghiVrTools.SnapzoneTighteningWithToolMechanism
 {
     public enum ToolInstallation
     {

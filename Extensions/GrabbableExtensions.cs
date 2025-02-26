@@ -1,7 +1,7 @@
 using BNG;
 using UnityEngine;
 
-namespace OghiUnityTools.VR.VR_Utils
+namespace OghiVrTools.Extensions
 {
     public static class GrabbableExtensions
     {
