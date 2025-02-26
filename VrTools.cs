@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace OghiVrTools.VR_Utils
+namespace OghiVrTools.OghiVrTools
 {
     public static class OghiVrTools
     {
@@ -10,20 +10,14 @@ namespace OghiVrTools.VR_Utils
 
         private static readonly string packageFolderLocation = "Packages/com.oghina.oghivrtools/";
 
-        public static void InitializeVrTools()
+        public static GameObject InitializeVrTools()
         {
             var prefab = (GameObject)AssetDatabase.LoadAssetAtPath(uiCanvasPrefabLocation, typeof(GameObject));
             if (prefab != null)
                 Debug.Log($"Prefab name is {prefab.name}");
             else
                 Debug.LogError("Failed to load prefab: " + uiCanvasPrefabLocation);
-
-            var guids = AssetDatabase.FindAssets("", new[] { packageFolderLocation });
-            foreach (var guid in guids)
-            {
-                var assetPath = AssetDatabase.GUIDToAssetPath(guid);
-                Debug.Log("Asset found: " + assetPath);
-            }
+            return prefab;
         }
     }
 }
