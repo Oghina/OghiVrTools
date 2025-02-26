@@ -4,6 +4,6 @@
   "displayName": "Oghi VR Tools",
   "description": "Utility VR library. Dependable on BNG Framework",
   "dependencies": {
-    "com.oghina.oghiunitytools": "https://github.com/Oghina/OghiUnityTools.git#v1.0.0"
+    "com.oghina.oghiunitytools": "https://github.com/Oghina/OghiUnityTools.git"
   }
 }
