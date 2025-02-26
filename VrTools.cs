@@ -1,9 +1,9 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace OghiVrTools.OghiVrTools
+namespace OghiVrTools
 {
-    public static class OghiVrTools
+    public static class VrTools
     {
         private static readonly string uiCanvasPrefabLocation =
             "Packages/com.oghina.oghivrtools/UI/Prefabs/VR_Canvas.prefab";
@@ -18,6 +18,8 @@ namespace OghiVrTools.OghiVrTools
             else
                 Debug.LogError("Failed to load prefab: " + uiCanvasPrefabLocation);
             return prefab;
+            
+            // Just a comment to test git ignore
         }
     }
 }
