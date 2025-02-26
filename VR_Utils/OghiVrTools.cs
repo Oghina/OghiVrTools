@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace OghiVrTools
+namespace OghiVrTools.VR_Utils
 {
     public static class OghiVrTools 
     {
